@@ -4,25 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Properties;
-
-/* ChangeLog:
-    done:
-       //class for properties processing
-       //decompose with classes
-       - removed unnecessary properties (for ex: filepath)
-       - program falls faster
-*/
-
-
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
-        System.out.println("hello world 2!");
-        System.out.println("change in dev, which is absent in master. aster merge request is expected to be added");
-        //comment+1
-
         //trycatch for all exceptions
         logger.info("Application started.");
         logger.trace("TRACE: Application is initializing.");

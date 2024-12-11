@@ -1,42 +1,11 @@
 <assembly xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 https://maven.apache.org/xsd/assembly-2.2.0.xsd">
-    <!-- TODO: a jarjar format would be better -->
     <id>jar-with-dependencies</id>
     <formats>
         <format>jar</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
-    <!--<files>
-        <file>
-            <source>${basedir}/logback.xml</source>
-            <outputDirectory>{project.build.directory}/src/resources</outputDirectory>
-        </file>
-        <file>
-            <source>${basedir}/username.properties</source>
-            <outputDirectory>{project.build.directory}/src/resources</outputDirectory>
-        </file>
-    </files>-->
-
-    <!--<dependencySets>
-        <dependencySet>
-            &lt;!&ndash;<useProjectArtifact>false</useProjectArtifact>&ndash;&gt;
-            <excludes>
-                &lt;!&ndash;<exclude>*:jar:*</exclude>&ndash;&gt;
-                <exclude>*:xml:*</exclude>
-                <exclude>*:properties:*</exclude>
-            </excludes>
-        </dependencySet>
-    </dependencySets>-->
-    <!--<fileSets>
-        <fileSet>
-            <directory>${project.build.directory}/classes/</directory>
-            <outputDirectory>/</outputDirectory>
-            <includes>
-                <include>*.class</include>
-            </includes>
-        </fileSet>
-    </fileSets>-->
     <fileSets>
         <fileSet>
             <directory>${project.build.directory}/classes</directory>
@@ -44,49 +13,8 @@
             <includes>
                 <include>**/*</include> <!-- Включаємо всі класи та ресурси -->
             </includes>
-            <!--<excludes>
-                <exclude>**/*.properties</exclude>
-                <exclude>**/*.xml</exclude>
-            </excludes>-->
         </fileSet>
-        <!--<fileSet>
-            <useDefaultExcludes>false</useDefaultExcludes>
-            <excludes>
-                <exclude>**/resources/**</exclude>
-            </excludes>
-        </fileSet>-->
-
-        <!--<fileSet>
-            &lt;!&ndash;<directory>src/main/resources</directory>&ndash;&gt;
-            <excludes>
-                <exclude>username.properties</exclude>
-                <exclude>logback.xml</exclude>
-            </excludes>
-        </fileSet>-->
     </fileSets>
-
-
-
-        <!-- Додаємо лише власні класи та ресурси -->
-       <!-- <fileSet>
-            <directory>${project.build.directory}/classes</directory> &lt;!&ndash; Каталог з компільованими класами &ndash;&gt;
-            &lt;!&ndash;<directory>${project.build.directory}</directory>&ndash;&gt;
-            <outputDirectory>/</outputDirectory> &lt;!&ndash; Зберігаємо у корені JAR &ndash;&gt;
-            <includes>
-                <include>**/*</include> &lt;!&ndash; Включаємо всі класи та ресурси &ndash;&gt;
-                &lt;!&ndash;<include>username.properties</include>&ndash;&gt;
-            </includes>
-        </fileSet>-->
-
-       <!-- <fileSet>
-            <directory>${project.build.directory}</directory>
-            <includes>
-                <include>username.properties</include>
-                <include>logback.xml</include>
-            </includes>
-            <outputDirectory>/</outputDirectory> &lt;!&ndash; У ту саму папку, що й JAR &ndash;&gt;
-        </fileSet>-->
-    <!--</fileSets>-->
 </assembly>
 
 

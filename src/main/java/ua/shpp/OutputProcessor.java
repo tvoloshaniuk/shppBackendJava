@@ -1,6 +1,5 @@
 package ua.shpp;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -21,12 +20,6 @@ public class OutputProcessor {
         ObjectMapper mapper = "xml".equalsIgnoreCase(outputFormat) ? new XmlMapper() : new ObjectMapper();
         logger.info(mapper.writeValueAsString(message));
 
-//        try {
-//
-//        } catch (JsonProcessingException e) {
-//            logger.error("Error generating output: {}", e.getMessage(), e);
-//            System.exit(1);
-//        }
     }
 
 

@@ -1,6 +1,5 @@
 package ua.shpp;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 //pojo
@@ -9,18 +8,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 public class Message {
     private String message;
 
-    /*
-    public Message(String message) {
-        this.message = message;
-    }*/
-
     public String getMessage() {
         return message;
     }
-/*
-    public void setMessage(String message) {
-        this.message = message;
-    }*/
 
     public Message setMessage(String message) {
         this.message = message;
