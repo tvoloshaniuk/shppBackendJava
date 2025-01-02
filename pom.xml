@@ -6,8 +6,8 @@
 
 
     <groupId>ua.shpp</groupId>
-    <artifactId>pract1</artifactId>
-    <version>1.0.1</version>
+    <artifactId>pract2</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,17 +40,6 @@
 
     </dependencies>
 
-    <!--<build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-    </build>-->
-
-
-
-
     <profiles>
         <!-- Assembly Profile -->
         <profile>
@@ -78,7 +67,6 @@
                                 <manifestEntries>
                                     <Class-Path>config/</Class-Path>
                                 </manifestEntries>
-
                             </archive>
                         </configuration>
                         <executions>
@@ -133,24 +121,6 @@
                                     </resources>
                                 </configuration>
                             </execution>
-                           <!-- <execution>
-                                <id>copy-resources</id>
-                                &lt;!&ndash; here the phase you need &ndash;&gt;
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <resources>
-                                        <resource>
-                                            <directory>src/main/resources</directory>
-                                            <excludes>
-                                                <excludes>**/*</excludes>
-                                            </excludes>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>-->
                         </executions>
                     </plugin>
                 </plugins>
@@ -182,33 +152,6 @@
                                         <!---->
                                     </manifestEntries>
                                 </transformer>
-
-                                <!--<transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                                    <resource>src/main/username.properties</resource>
-                                    &lt;!&ndash;&ndash;&gt;
-                                </transformer>-->
-
-
-
-                               <!-- <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                                    <resource>remote.properties</resource>
-                                    &lt;!&ndash;&ndash;&gt;
-                                </transformer>-->
-
-                                <!--<transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                                    <resource>src/main/resources/username.properties</resource>
-                                    <file>username.properties</file>
-                                </transformer>
-
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                                    <resource>src/main/resources/logback.xml</resource>
-                                    <file>logback.xml</file>
-                                </transformer>-->
-
                             </transformers>
                         </configuration>
                         <executions>
@@ -220,33 +163,6 @@
                             </execution>
                         </executions>
                     </plugin>
-                   <!-- <plugin>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>3.3.1</version>
-                        <executions>
-                            <execution>
-                                <id>copy-resources</id>
-                                &lt;!&ndash; here the phase you need &ndash;&gt;
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    &lt;!&ndash;<outputDirectory>${project.build.outputDirectory}</outputDirectory>&ndash;&gt;
-                                    <outputDirectory>./</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <filtering>false</filtering>
-                                            <directory>src/main/resources</directory>
-                                            <includes>
-                                                <include>**/*</include>
-                                            </includes>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>-->
                 </plugins>
             </build>
         </profile>
