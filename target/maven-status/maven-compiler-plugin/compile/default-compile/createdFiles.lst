@@ -1,5 +1,6 @@
+ua\shpp\MultiplicationEntry.class
+ua\shpp\NumericCalc.class
+ua\shpp\MultiTable.class
 ua\shpp\PropertyProcessor.class
 ua\shpp\CriticalResourceException.class
-ua\shpp\Message.class
-ua\shpp\OutputProcessor.class
 ua\shpp\App.class
