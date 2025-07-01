@@ -1,0 +1,63 @@
+build-job:
+  stage: build
+  image: maven:3.9.6-eclipse-temurin-21
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - mvn clean package -P shade
+  artifacts:
+    paths:
+      - target/pract2-fat-jar.jar
+    expire_in: 1 hour
+
+deploy-prod:
+  stage: deploy
+  #  image: ruby:3.1
+  #  image: ubuntu:20.04
+  variables:
+    SECURE_FILES_DOWNLOAD_PATH: '~/.ssh/'
+  script:
+    - curl --silent "https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer" | bash
+    - apt-get update && apt-get install -y openssh-client
+    - chmod 600 /builds/groupname12044748/blankproject2/~/.ssh/AWSKeyPairName.pem
+    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+
+    - ls -la /builds/groupname12044748/blankproject2/~/
+    - ls -la /builds/groupname12044748/blankproject2/
+    - ls -la /
+    - ls -la
+    - ls -la .
+    - pwd
+    - ls -la /builds/groupname12044748/blankproject2/target
+
+    # Створення ~/.ssh і додавання known_hosts
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H 54.174.90.225 >> ~/.ssh/known_hosts
+    #
+    #    - echo $KEY_PEM_3 > ~/.ssh/id_rsa
+    #    - echo $KEY_PEM_3
+
+    #    - whoami
+    #    - echo ~
+    #    - echo $HOME
+    #    - ls -la /builds/groupname12044748/blankproject2/~/.ssh
+    #    - ls -la ~/.ssh/
+    #    - cat ~/.ssh/AWSKeyPairName.pem
+    #    - cat ~/.ssh/id_rsa
+
+    # Фікс прав доступу до приватного ключа
+    #- chmod 600 ~/.ssh/id_rsa
+
+    # Копіювання jar-файлу на EC2
+    - scp -i /builds/groupname12044748/blankproject2/~/.ssh/AWSKeyPairName.pem target/pract2-fat-jar.jar ec2-user@54.174.90.225:/opt/
+
+    # Підключення до інстансу і зупинення минулого jar
+    #- ssh -i /builds/groupname12044748/blankproject2/~/.ssh/AWSKeyPairName.pem ec2-user@54.174.90.225 "pkill -f pract2-fat-jar.jar"
+
+    # Запуск ново jar файлу
+    - ssh -i /builds/groupname12044748/blankproject2/~/.ssh/AWSKeyPairName.pem ec2-user@54.174.90.225 "java -jar /opt/pract2-fat-jar.jar"
+
+  #  when: manual
+
+  environment: production
+  dependencies:
+    - build-job
